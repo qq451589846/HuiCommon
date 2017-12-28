@@ -1,5 +1,0 @@
-D:\WorkSpace\LHH\ConsoleTest\Common\bin\Debug\Common.dll
-D:\WorkSpace\LHH\ConsoleTest\Common\bin\Debug\Common.pdb
-D:\WorkSpace\LHH\ConsoleTest\Common\obj\Debug\Common.dll
-D:\WorkSpace\LHH\ConsoleTest\Common\obj\Debug\Common.pdb
-D:\WorkSpace\LHH\ConsoleTest\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
