@@ -34,3 +34,5 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+// 移动日志配置到主目录下
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = @"Config\log4net.config", Watch = true)]

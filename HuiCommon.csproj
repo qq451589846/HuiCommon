@@ -137,6 +137,9 @@
     <Compile Include="Extend\Ext.Convert.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Config\log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
