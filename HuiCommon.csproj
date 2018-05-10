@@ -118,6 +118,10 @@
     <Compile Include="Mail\MailConfigure.cs" />
     <Compile Include="Mail\MailService.cs" />
     <Compile Include="Mail\MailTemplate.cs" />
+    <Compile Include="Mongo\MongoDBFactory.cs" />
+    <Compile Include="Mongo\MongoHelper.cs" />
+    <Compile Include="Mongo\MongoUpdateOrAddModel.cs" />
+    <Compile Include="Mongo\MongoUtils.cs" />
     <Compile Include="Net\HttpMethods.cs" />
     <Compile Include="Net\HuiRequest.cs" />
     <Compile Include="Net\INet.cs" />
@@ -134,7 +138,7 @@
     <Compile Include="WebHelper\SessionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extend\Ext.Convert.cs" />
+    <Compile Include="Extension\ConvertExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\log4net.config">

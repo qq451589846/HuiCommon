@@ -1,9 +1,6 @@
-﻿/*******************************************************************************
- * Copyright © 2016 NFine.Framework 版权所有
- * Author: NFine
- * Description: NFine快速开发平台
- * Website：http://www.nfine.cn
-*********************************************************************************/
+﻿using Common.Extend;
+using Common.Utility;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -144,7 +141,7 @@ namespace Common.Net
             {
                 string url = "http://apis.juhe.cn/ip/ip2addr?ip=" + ip + "&dtype=json&key=b39857e36bee7a305d55cdb113a9d725";
                 res = HttpMethods.HttpGet(url);
-                var resjson = Common.Utils.JsonToObject<objex>(res) as objex;
+                var resjson = JsonConvert.DeserializeObject<objex>(res);
                 res = resjson.result.area + " " + resjson.result.location;
             }
             catch
@@ -159,7 +156,7 @@ namespace Common.Net
             {
                 string url = "https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?query=" + ip + "&resource_id=6006&ie=utf8&oe=gbk&format=json";
                 res = HttpMethods.HttpGet(url, Encoding.GetEncoding("GBK"));
-                var resjson = Common.Utils.JsonToObject<obj>(res) as obj;
+                var resjson = JsonConvert.DeserializeObject<obj>(res);
                 //var resjson = res.ToObject<obj>();
                 res = resjson.data[0].location;
             }

@@ -11,7 +11,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 
-namespace Framework.Common.Message
+namespace Common.Message
 {
     /// <summary>
     /// MailService 的摘要说明。

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SampleCode.Toys
+namespace Common.Singleton
 {
     public class Singleton
     {

@@ -3,7 +3,7 @@ using System.Data;
 using System.Collections;
 using System.Xml;
 
-namespace Framework.Common.Message
+namespace Common.Message
 {
 
     /// <summary>

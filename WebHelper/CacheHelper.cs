@@ -1,9 +1,9 @@
-﻿using System;
-using System.Web;
-using System.Collections;
-
-namespace Common
+﻿namespace Common.WebHelper
 {
+    using System;
+    using System.Web;
+    using System.Collections;
+
     /// <summary>
     /// 缓存辅助类
     /// </summary>

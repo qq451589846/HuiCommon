@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Text;
 
-namespace Framework.Common.Message
+namespace Common.Message
 {
     internal static class MailConfigure
     {

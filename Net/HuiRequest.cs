@@ -25,40 +25,6 @@ namespace Common.Net
         }
 
         /// <summary>
-        /// Post方式访问地址
-        /// </summary>
-        /// <param name="url">地址</param>
-        /// <param name="strparama">参数</param>
-        /// <param name="dict">（可选）Headers字典，默认添加Content-Type application/x-www-form-urlencoded;charset=utf-8</param>
-        /// <returns></returns>
-        public string ExecuteAsPost(string url, string strparama, Dictionary<string, string> dict = null)
-        {
-            if (CheckArgument(url))
-            {
-                using (var content = new StringContent(strparama))
-                {
-                    content.Headers.Clear();
-                    if (dict != null)
-                    {
-                        foreach (var item in dict)
-                        {
-                            content.Headers.Add(item.Key, item.Value);
-                        }
-                    }
-                    else
-                    {
-                        content.Headers.Add("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-                    }
-
-                    _client.Timeout = new TimeSpan(5000);
-                    var resp = _client.PostAsync(url, content).Result;
-                    return resp.Content.ReadAsStringAsync().Result;
-                }
-            }
-            return _strempty;
-        }
-
-        /// <summary>
         /// 获取请求的反馈信息
         /// </summary>
         /// <param name="url"></param>
@@ -75,7 +41,7 @@ namespace Common.Net
                 hwRequest.Timeout = timeout;
                 hwRequest.Method = "POST";
                 hwRequest.ContentType = "application/x-www-form-urlencoded;charset=utf-8";
-                byte[] bData = Encoding.UTF8.GetBytes(param);
+                byte[] bData = Encoding.UTF8.GetBytes(param);                
                 hwRequest.ContentLength = bData.Length;
                 using (var smWrite = hwRequest.GetRequestStream())
                 {

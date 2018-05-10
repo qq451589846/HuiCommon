@@ -1,8 +1,8 @@
-﻿using System.Web;
-using System.Text.RegularExpressions;
-
-namespace Common
+﻿namespace Common.WebHelper
 {
+    using System.Web;
+    using System.Text.RegularExpressions;
+
     /// <summary>
     /// QueryString 地址栏参数
     /// </summary>

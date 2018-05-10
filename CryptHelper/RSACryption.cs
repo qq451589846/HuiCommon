@@ -1,8 +1,9 @@
-﻿using System;
-using System.Text;
-using System.Security.Cryptography;
-namespace Common.CryptHelper
+﻿namespace Common.CryptHelper
 {
+    using System;
+    using System.Text;
+    using System.Security.Cryptography;
+
     /// <summary> 
     /// RSA加密解密及RSA签名和验证
     /// </summary> 

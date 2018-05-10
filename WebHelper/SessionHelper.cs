@@ -1,7 +1,7 @@
-﻿using System.Web;
-
-namespace Common
+﻿namespace Common.WebHelper
 {
+    using System.Web;
+
     /// <summary>
     /// Session 操作类
     /// 1、GetSession(string name)根据session名获取session对象

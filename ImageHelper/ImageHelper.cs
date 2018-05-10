@@ -6,7 +6,7 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace Common
+namespace Common.ImageHelper
 {
     public class ImageHelper
     {       

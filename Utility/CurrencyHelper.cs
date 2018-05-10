@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Common
+﻿namespace Common.Utility
 {
+    using System;
+
     /// <summary>
     /// CommonHelper工具包
     /// </summary>

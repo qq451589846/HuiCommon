@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
-using System.Collections;
-using System.Net;
-using System.IO;
-using System.Reflection;
-using System.Security.Cryptography;
-using System.Web.Script.Serialization;
-using System.Web;
-using System.Runtime.Serialization.Json;
-using System.Text.RegularExpressions;
-using System.Configuration;
-
-namespace Common
+﻿namespace Common.Utility
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Data;
+    using System.IO;
+    using System.Linq;
+    using System.Net;
+    using System.Reflection;
+    using System.Runtime.Serialization.Json;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using System.Web;
+    using System.Web.Script.Serialization;
+
     /// <summary>
     /// 系统帮助类
     /// </summary>

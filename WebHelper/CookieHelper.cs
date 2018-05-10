@@ -1,8 +1,8 @@
-﻿using System;
-using System.Web;
-
-namespace Common
+﻿namespace Common.WebHelper
 {
+    using System;
+    using System.Web;
+
     /// <summary>
     /// Cookie辅助类
     /// </summary>
