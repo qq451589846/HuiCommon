@@ -1,4 +1,7 @@
-﻿namespace Common.Utility
+﻿using System.Net.Http;
+using System.Net.Http.Headers;
+
+namespace Common.Utility
 {
     using System;
     using System.Collections;
@@ -1711,7 +1714,7 @@
                 int columncount = dt.Columns.Count;
                 for (int columi = 0; columi < columncount; columi++)
                 {
-                    strb.Append(" <td style='text-align:center;'><b>" + ColumnName(dt.Columns[columi].ToString()) + "</b></td>");
+                    strb.Append(" <td style='text-align:center;'><b>" + dt.Columns[columi] + "</b></td>");
                 }
                 strb.Append(" </tr>");
                 //写数据   
@@ -1737,149 +1740,42 @@
             HttpContext.Current.Response.Write(strb);
             HttpContext.Current.Response.End();
         }
-        #endregion
 
-        #region 列的命名
-        private static string ColumnName(string column)
+        public static string GetCsvSting(DataTable dt)
         {
-            switch (column)
+            StringBuilder sb = new StringBuilder();
+            if (dt.Rows.Count > 0)
             {
-                case "area":
-                    return "地区";
-                case "tongxun":
-                    return "通讯费";
-                case "jietong":
-                    return "接通";
-                case "weijietong":
-                    return "未接通";
-                case "youxiao":
-                    return "有效电话";
-                case "shangji":
-                    return "消耗商机费";
-                case "zongji":
-                    return "总机费";
-                case "account":
-                    return "帐号";
-                case "extensionnum":
-                    return "分机";
-                case "accountname":
-                    return "商户名称";
-                case "transfernum":
-                    return "转接号码";
-                case "calledcalltime":
-                    return "通话时长(秒)";
-                case "callerstarttime":
-                    return "通话时间";
-                case "caller":
-                    return "主叫号码";
-                case "callerlocation":
-                    return "归属地";
-                case "callresult":
-                    return "结果";
-                case "Opportunitycosts":
-                    return "商机费";
-                case "memberfee":
-                    return "通讯费";
-                case "licenid":
-                    return "客服编号";
-                case "servicename":
-                    return "客服名称";
-                case "serviceaccount":
-                    return "客服帐号";
-                case "messageconsume":
-                    return "短信消耗";
-                case "receivingrate":
-                    return "接听率";
-                case "youxiaop":
-                    return "有效接听率";
-                case "telamount":
-                    return "电话量";
-                case "extennum":
-                    return "拨打分机个数";
-                case "telconnum":
-                    return "继续拨打分机次数";
-                case "listenarea":
-                    return "接听区域";
-                case "specialfield":
-                    return "专业领域";
-                case "calltime":
-                    return "接听时间";
-                case "userstart":
-                    return "当前状态";
-                case "currentbalance":
-                    return "当前余额";
-                case "call400all":
-                    return "400电话总量";
-                case "call400youxiao":
-                    return "400有效电话量";
-                case "call400consume":
-                    return "400消耗额";
-                case "call400avgopp":
-                    return "400平均商机费";
-                case "call800all":
-                    return "800电话总量";
-                case "call800youxiao":
-                    return "800有效电话量";
-                case "call800consume":
-                    return "800消耗额";
-                case "call800avgopp":
-                    return "800平均商机费";
-                case "callall":
-                    return "电话总量";
-                case "callyouxiao":
-                    return "总有效电话量";
-                case "callconsume":
-                    return "总消耗额";
-                case "callavgoppo":
-                    return "总平均商机费";
-                case "hr":
-                    return "小时";
-                case "shangji400":
-                    return "400商机费";
-                case "shangji800":
-                    return "800商机费";
-                case "tongxun400":
-                    return "400通讯费";
-                case "tongxun800":
-                    return "800通讯费";
-                case "zongji400":
-                    return "400总机费";
-                case "zongji800":
-                    return "800总机费";
-                case "datet":
-                    return "日期";
-                case "opentime":
-                    return "开通时间";
-                case "allrecharge":
-                    return "充值金额";
-                case "Userstart":
-                    return "状态";
-                case "allnum":
-                    return "总接听量";
-                case "cbalance":
-                    return "合作金额";
-                case "allmoney":
-                    return "续费额";
-                case "username":
-                    return "商户账号";
-                case "isguoqi":
-                    return "是否过期";
-                case "accounttype":
-                    return "商户类型";
-                case "mphone":
-                    return "客户手机号";
-                case "specialText":
-                    return "专长";
-                case "uuname":
-                    return "客服";
-                case "opentimes":
-                    return "合作时间";
-                case "shangjifei":
-                    return "商机费";
+                for (int columi = 0; columi < dt.Columns.Count; columi++)
+                {
+                    sb.Append($"{dt.Columns[columi]},");
+                }
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    sb.AppendLine();
 
+                    for (int j = 0; j < dt.Columns.Count; j++)
+                    {
+                        sb.Append($"{dt.Rows[i][j]},");
+                    }
+                }
             }
-            return "";
+            return sb.ToString();
         }
+
+        public static HttpResponseMessage CreateCsv(DataTable dt)
+        {
+            var csvstr = GetCsvSting(dt);
+            var csvstream = new MemoryStream(Encoding.UTF8.GetBytes(csvstr));
+            var httpResponseMessage = new HttpResponseMessage
+            {
+                Content = new StreamContent(csvstream)
+            };
+            httpResponseMessage.Content.Headers.ContentDisposition = ContentDispositionHeaderValue.Parse($"attachment; filename={dt.TableName}.csv");
+            httpResponseMessage.Content.Headers.ContentType = new MediaTypeHeaderValue("application/ms-excel");
+            return httpResponseMessage;
+        }
+
         #endregion
 
         #region 构造URL POST请求
