@@ -1756,10 +1756,13 @@ namespace Common.Utility
 
                     for (int j = 0; j < dt.Columns.Count; j++)
                     {
-                        sb.Append($"{dt.Rows[i][j]},");
+                        var val = dt.Rows[i][j].ToString();
+                        val = val.Contains(",") ? $"\"{val}\"" : val;
+                        sb.Append($"{val},");
                     }
                 }
             }
+
             return sb.ToString();
         }
 
