@@ -131,6 +131,7 @@
     <Compile Include="DataAccess\MonogoDBHelper.cs" />
     <Compile Include="DataAccess\MSSqlHelper.cs" />
     <Compile Include="Utility\CurrencyHelper.cs" />
+    <Compile Include="Utility\SortHelper.cs" />
     <Compile Include="Utility\Utils.cs" />
     <Compile Include="WebHelper\CacheHelper.cs" />
     <Compile Include="WebHelper\CookieHelper.cs" />
